@@ -10,7 +10,7 @@ def import_data(path):
 
 def tag_data(data):
     split_data = data.split(".")
-    return [pos_tag(word_tokenize(data.lower()))for data in split_data]
+    return [pos_tag(word_tokenize(data.lower())) for data in split_data]
 
 
 def extract_important_words(sentences):
@@ -37,12 +37,11 @@ def __check_if_word_tag_is_not_excluded(tag):
 
 
 def __check_if_word_is_not_exception(examined_word):
-    exceptions = {"IN": ("if", ),
-                  "RB": ("otherwise", ),
+    exceptions = {"IN": ("if",),
+                  "RB": ("otherwise",),
                   "JJ": ("acceptable",)}
 
-    # print(wn.synsets("accept"))
-    #TODO implement synonyms( path_similarity or synset)
+    # TODO implement synonyms( path_similarity or synset)
 
     for words in exceptions.values():
         for word in words:
@@ -53,6 +52,7 @@ def __check_if_word_is_not_exception(examined_word):
 
 def extract_simple_model(sentences):
     model = ""
+    # TODO add further analysis
     for sentence_id, sentence in enumerate(sentences):
         print(sentence)
         if sentence_id == 0:
